@@ -93,4 +93,8 @@ def turn
   return false
 end
 
+def full?
+  @board.all? {|index| index == "X" || index == "O"}
+end
+
 end
