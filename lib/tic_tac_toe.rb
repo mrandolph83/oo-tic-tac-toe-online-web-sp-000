@@ -66,11 +66,11 @@ def turn
    input = gets.strip
    index = input_to_index(input)
    if valid_move?(board, index)
-     game_piece = current_player(board)
-     move(board, index, game_piece)
-     display_board(board)
+     game_piece = current_player
+     move(index, game_piece)
+     display_board
    else
-     turn(board)
+     turn
    end
  end
 
