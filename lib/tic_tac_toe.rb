@@ -1,16 +1,15 @@
 class TicTacToe
 
-WIN_COMBINATIONS = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [6, 4, 2]
-
-]
+  WIN_COMBINATIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [6, 4, 2]
+  ]
 
 def initialize
   @board = Array.new(9, " ")
@@ -47,34 +46,34 @@ def turn_count
       turn += 1
     end
   end
-  turn
+  return turn
 end
 
 def current_player
   #if the turn count is an even number, that means O just went, so the next/current player is X
-  turns = turn_count
-  if turns % 2 == 0
+  num_turns = turn_count
+  if num_turns % 2 == 0
     player = "X"
   else
     player = "O"
   end
-  player
+  return player
 end
 
 def turn
-   puts "Please enter 1-9:"
-   input = gets.strip
-   index = input_to_index(input)
-   if valid_move?(index)
-     game_piece = current_player
-     move(index, game_piece)
-     display_board
-   else
-     turn
-   end
- end
+  puts "Please choose a number 1-9:"
+  user_input = gets.chomp
+  index = input_to_index(user_input)
+  if valid_move?(index)
+    player_token = current_player
+    move(index, player_token)
+    display_board
+  else
+    turn
+  end
+end
 
- def won?
+def won?
   WIN_COMBINATIONS.each {|win_combo|
     index_0 = win_combo[0]
     index_1 = win_combo[1]
@@ -106,7 +105,7 @@ def draw?
 end
 
 def over?
-  if won? || full? || draw?
+  if won? || draw?
     return true
   else
     return false
@@ -138,6 +137,5 @@ def play
     puts "Cat's Game!"
   end
 end
-
 
 end
