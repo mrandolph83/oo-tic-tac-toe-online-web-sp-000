@@ -12,9 +12,8 @@ WIN_COMBINATIONS = [
 
 ]
 
-def initialize(board = nil)
-    @board = board || Array.new(9, " ")
-end
+def initialize
+  @board = Array.new(9, " ")
 end
 
 def display_board
@@ -138,4 +137,7 @@ def play
   elsif draw?
     puts "Cat's Game!"
   end
+end
+
+
 end
