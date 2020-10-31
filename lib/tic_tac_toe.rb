@@ -15,6 +15,7 @@ WIN_COMBINATIONS = [
 def initialize(board = nil)
     @board = board || Array.new(9, " ")
 end
+end
 
 def display_board
   puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
@@ -140,4 +141,3 @@ def play
 end
 
 
-end
